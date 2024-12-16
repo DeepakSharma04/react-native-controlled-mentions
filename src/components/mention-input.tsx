@@ -35,7 +35,7 @@ const MentionInput: FC<MentionInputProps> = (
 ) => {
   const textInput = useRef<TextInput | null>(null);
 
-  const [selection, setSelection] = useState({start: 0, end: 0});
+  const [selection, setSelection] = useState({ start: 0, end: 0 });
 
   const {
     plainText,
@@ -146,7 +146,7 @@ const MentionInput: FC<MentionInputProps> = (
         onSelectionChange={handleSelectionChange}
       >
         <Text>
-          {parts.map(({text, partType, data}, index) => partType ? (
+          {parts.map(({ text, partType, data }, index) => partType ? (
             <Text
               key={`${index}-${data?.trigger ?? 'pattern'}`}
               style={partType.textStyle ?? defaultMentionTextStyle}
@@ -154,7 +154,11 @@ const MentionInput: FC<MentionInputProps> = (
               {text}
             </Text>
           ) : (
-            <Text key={index}>{text}</Text>
+            <Text
+              style={{ color: "#2F3C4E", fontSize: 18, fontFamily: "PTSans-Regular" }} 
+              key={index}>
+              {text}
+            </Text>
           ))}
         </Text>
       </TextInput>
